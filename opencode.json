@@ -1,0 +1,55 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "mcp": {
+    "burp": {
+      "type": "local",
+      "command": [
+        "java",
+        "-jar",
+        "/home/mody_moxx20/mcp/mcp-proxy.jar",
+        "--sse-url",
+        "http://127.0.0.1:9876/"
+      ]
+    },
+
+    "browser-control": {
+      "type": "local",
+      "command": [
+        "node",
+        "/home/mody_moxx20/browser-control-mcp/mcp-server/dist/server.js"
+      ],
+      "environment": {
+        "EXTENSION_SECRET": "2884441d-c1c0-4578-acb9-c50382d0bffa",
+        "EXTENSION_PORT": "8089"
+      }
+    },
+
+    "go-playground": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "go-playground-mcp"
+      ]
+    },
+
+    "firefox-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@mozilla/firefox-devtools-mcp@latest",
+    "--tool-preset",
+    "developer"
+      ],
+      "enabled": true
+    }
+  },
+
+  "permission": {
+    "skill": {
+      "web-security-research": "allow"
+    }
+  }
+}
